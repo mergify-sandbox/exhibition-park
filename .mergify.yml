@@ -5,17 +5,17 @@ pull_request_rules:
       - base=main
       # Frontend ownership rule
       - or:
-        - -files~=^frontend/.*
+        - "-files~=^frontend/.*"
         - and:
-          - files~=^frontend/.*
+          - "files~=^frontend/.*"
           - or:
             - author=@ownership-fontend
             - approved-reviews-by=@ownership-frontend
       # Backend ownership rule
       - or:
-        - -files~=^backends/.*
+        - "-files~=^backends/.*"
         - and:
-          - files~=^backends/.*
+          - "files~=^backends/.*"
           - author=@ownership-backend
           - approved-reviews-by=@ownership-backend
     actions:
@@ -29,17 +29,17 @@ pull_request_rules:
       - base=main
       # Python readability
       - or:
-        - -files~=*/.py
+        - "-files~=.*/.py"
         - and:
-          - files~=*/.py
+          - "files~=.*/.py"
           - or:
             - author=@readability-python
             - approved-reviews-by=@readability-python
       # JS readability
       - or:
-        - -files~=*/.py
+        - "-files~=.*/.py"
         - and:
-          - files~=*/.py
+          - "files~=.*/.py"
           - or:
             - author=@readability-python
             - approved-reviews-by=@readability-python
