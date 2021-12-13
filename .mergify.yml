@@ -9,7 +9,7 @@ pull_request_rules:
         - and:
           - "files~=^frontend/.*"
           - or:
-            - author=@ownership-fontend
+            - author=@ownership-frontend
             - approved-reviews-by=@ownership-frontend
       # Backend ownership rule
       - or:
