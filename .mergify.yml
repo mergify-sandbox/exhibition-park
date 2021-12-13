@@ -10,14 +10,14 @@ pull_request_rules:
           - files~=^frontend/.*
           - or:
             - author=@ownership-fontend
-            - approved-review-by=@ownership-frontend
+            - approved-reviews-by=@ownership-frontend
       # Backend ownership rule
       - or:
         - -files~=^backends/.*
         - and:
           - files~=^backends/.*
           - author=@ownership-backend
-          - approved-review-by=@ownership-backend
+          - approved-reviews-by=@ownership-backend
     actions:
       review:
         type: APPROVE
@@ -34,7 +34,7 @@ pull_request_rules:
           - files~=*/.py
           - or:
             - author=@readability-python
-            - approved-review-by=@readability-python
+            - approved-reviews-by=@readability-python
       # JS readability
       - or:
         - -files~=*/.py
@@ -42,7 +42,7 @@ pull_request_rules:
           - files~=*/.py
           - or:
             - author=@readability-python
-            - approved-review-by=@readability-python
+            - approved-reviews-by=@readability-python
     actions:
       review:
         type: APPROVE
