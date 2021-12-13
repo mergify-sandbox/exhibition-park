@@ -1,0 +1,49 @@
+
+pull_request_rules:
+  - name: ownership frontend
+    conditions:
+      - base=main
+      # Frontend ownership rule
+      - or:
+        - -files~=^frontend/.*
+        - and:
+          - files~=^frontend/.*
+          - or:
+            - author=@ownership-fontend
+            - approved-review-by=@ownership-frontend
+      # Backend ownership rule
+      - or:
+        - -files~=^backends/.*
+        - and:
+          - files~=^backends/.*
+          - author=@ownership-backend
+          - approved-review-by=@ownership-backend
+    actions:
+      review:
+        type: APPROVE
+        bot_account: ownership-review
+
+
+  - name: readability review
+    conditions:
+      - base=main
+      # Python readability
+      - or:
+        - -files~=*/.py
+        - and:
+          - files~=*/.py
+          - or:
+            - author=@readability-python
+            - approved-review-by=@readability-python
+      # JS readability
+      - or:
+        - -files~=*/.py
+        - and:
+          - files~=*/.py
+          - or:
+            - author=@readability-python
+            - approved-review-by=@readability-python
+    actions:
+      review:
+        type: APPROVE
+        bot_account: readability-review
