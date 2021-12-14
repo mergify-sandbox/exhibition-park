@@ -37,12 +37,12 @@ pull_request_rules:
             - approved-reviews-by=@readability-python
       # JS readability
       - or:
-        - "-files~=.*/.py"
+        - "-files~=.*/.js"
         - and:
-          - "files~=.*/.py"
+          - "files~=.*/.js"
           - or:
-            - author=@readability-python
-            - approved-reviews-by=@readability-python
+            - author=@readability-js
+            - approved-reviews-by=@readability-js
     actions:
       review:
         type: APPROVE
