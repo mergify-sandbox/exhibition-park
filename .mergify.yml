@@ -13,9 +13,9 @@ pull_request_rules:
             - approved-reviews-by=@ownership-frontend
       # Backend ownership rule
       - or:
-        - "-files~=^backends/.*"
+        - "-files~=^backend/.*"
         - and:
-          - "files~=^backends/.*"
+          - "files~=^backend/.*"
           - author=@ownership-backend
           - approved-reviews-by=@ownership-backend
     actions:
