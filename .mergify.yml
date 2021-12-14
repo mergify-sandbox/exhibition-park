@@ -1,6 +1,6 @@
 
 pull_request_rules:
-  - name: ownership frontend
+  - name: ownership check
     conditions:
       - base=main
       # Frontend ownership rule
@@ -19,12 +19,19 @@ pull_request_rules:
           - author=@ownership-backend
           - approved-reviews-by=@ownership-backend
     actions:
+      post_check:
+        summary: ownership
+
+  - name: ownership approval
+    conditions:
+      - "check=Rule: ownership check (post_check)"
+    actions:
       review:
         type: APPROVE
         bot_account: ownership-review
 
 
-  - name: readability review
+  - name: readability check
     conditions:
       - base=main
       # Python readability
@@ -43,6 +50,13 @@ pull_request_rules:
           - or:
             - author=@readability-js
             - approved-reviews-by=@readability-js
+    actions:
+      post_check:
+        summary: readability
+
+  - name: readability approval
+    conditions:
+      - "check=Rule: readability check (post_check)"
     actions:
       review:
         type: APPROVE
