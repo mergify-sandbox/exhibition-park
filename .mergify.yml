@@ -24,7 +24,7 @@ pull_request_rules:
 
   - name: ownership approval
     conditions:
-      - "check=Rule: ownership check (post_check)"
+      - "check-success=Rule: ownership check (post_check)"
     actions:
       review:
         type: APPROVE
@@ -56,7 +56,7 @@ pull_request_rules:
 
   - name: readability approval
     conditions:
-      - "check=Rule: readability check (post_check)"
+      - "check-success=Rule: readability check (post_check)"
     actions:
       review:
         type: APPROVE
