@@ -30,6 +30,13 @@ pull_request_rules:
         type: APPROVE
         bot_account: ownership-review
 
+  - name: ownership approval
+    conditions:
+      - "check-failure=Rule: ownership check (post_check)"
+    actions:
+      review:
+        type: DISMISS
+        bot_account: ownership-review
 
   - name: readability check
     conditions:
@@ -60,4 +67,13 @@ pull_request_rules:
     actions:
       review:
         type: APPROVE
+        bot_account: readability-review
+
+
+  - name: readability dismiss
+    conditions:
+      - "check-failure=Rule: readability check (post_check)"
+    actions:
+      review:
+        type: DISMISS
         bot_account: readability-review
