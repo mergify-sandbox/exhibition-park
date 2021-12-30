@@ -1,4 +1,3 @@
-
 pull_request_rules:
   - name: ownership check
     conditions:
@@ -7,18 +6,13 @@ pull_request_rules:
       # Frontend ownership rule
       - or:
         - "-files~=^frontend/.*"
-        - and:
-          - "files~=^frontend/.*"
-          - or:
-            - author=@ownership-frontend
-            - approved-reviews-by=@ownership-frontend
+        - author=@ownership-frontend
+        - approved-reviews-by=@ownership-frontend
       # Backend ownership rule
       - or:
         - "-files~=^backend/.*"
-        - and:
-          - "files~=^backend/.*"
-          - author=@ownership-backend
-          - approved-reviews-by=@ownership-backend
+        - author=@ownership-backend
+        - approved-reviews-by=@ownership-backend
     actions:
       post_check:
         summary: ownership
@@ -46,19 +40,13 @@ pull_request_rules:
       # Python readability
       - or:
         - "-files~=.*/.py"
-        - and:
-          - "files~=.*/.py"
-          - or:
-            - author=@readability-python
-            - approved-reviews-by=@readability-python
+        - author=@readability-python
+        - approved-reviews-by=@readability-python
       # JS readability
       - or:
         - "-files~=.*/.js"
-        - and:
-          - "files~=.*/.js"
-          - or:
-            - author=@readability-js
-            - approved-reviews-by=@readability-js
+        - author=@readability-js
+        - approved-reviews-by=@readability-js
     actions:
       post_check:
         summary: readability
@@ -70,7 +58,6 @@ pull_request_rules:
       review:
         type: APPROVE
         bot_account: readability-review
-
 
   - name: readability dismiss
     conditions:
