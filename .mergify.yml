@@ -6,12 +6,16 @@ pull_request_rules:
       # Frontend ownership rule
       - or:
         - "-files~=^frontend/.*"
-        - author=@ownership-frontend
+        - and:
+          - author=@ownership-frontend
+          - label=self-review-frontend
         - approved-reviews-by=@ownership-frontend
       # Backend ownership rule
       - or:
         - "-files~=^backend/.*"
-        - author=@ownership-backend
+        - and:
+          - author=@ownership-backend
+          - label=self-review-backend
         - approved-reviews-by=@ownership-backend
     actions:
       post_check:
@@ -40,12 +44,16 @@ pull_request_rules:
       # Python readability
       - or:
         - "-files~=.*/.py"
-        - author=@readability-python
+        - and:
+          - author=@readability-python
+          - label=self-review-python
         - approved-reviews-by=@readability-python
       # JS readability
       - or:
         - "-files~=.*/.js"
-        - author=@readability-js
+        - and:
+          - author=@readability-js
+          - label=self-review-js
         - approved-reviews-by=@readability-js
     actions:
       post_check:
