@@ -74,3 +74,10 @@ pull_request_rules:
       review:
         type: REQUEST_CHANGES
         bot_account: readability-review
+
+
+  - name: merge on label
+    conditions:
+      - "label: merge"
+    actions:
+      merge:
